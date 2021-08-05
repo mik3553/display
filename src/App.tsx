@@ -12,30 +12,17 @@ const App = () => {
 
     const [usersData, setUsersData] = useState<Array<UserProps>>([]);
     const [user, setUser] = useState<UserProps | undefined>({
-        email: '',
+        address: {city: "", geo: {lat: "", lng: ""}, street: "", suite: "", zipcode: ""},
+        company: {bs: "", catchPhrase: "", name: ""},
+        email: "",
         id: 0,
-        name: '',
-        phone: '',
-        username: '',
-        website: '',
-        address : {
-            city: '',
-            geo: {
-                lat: '',
-                lng: '',
-            },
-            street: '',
-            suite: '',
-            zipcode: '',
-        },
-        company : {
-            bs: '',
-            catchPhrase: '',
-            name: '',
-        }
+        name: "",
+        phone: "",
+        username: "",
+        website: ""
     });
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState<boolean>(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 

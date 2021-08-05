@@ -33,8 +33,6 @@ const getModalStyle = () => {
     };
 }
 
-
-
 const UserModal:React.FC<Props> = ({user, open, handleClose}) => {
 
     const classes = useStyles();
