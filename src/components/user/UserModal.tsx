@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import {UserProps} from "../../models/UserProps";
@@ -9,6 +9,7 @@ interface Props {
     open: boolean;
     handleClose : () => void;
 }
+
 const useStyles = makeStyles((theme) => ({
     paper: {
         position: 'absolute',
@@ -32,10 +33,27 @@ const getModalStyle = () => {
     };
 }
 
+
+
 const UserModal:React.FC<Props> = ({user, open, handleClose}) => {
 
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);
+
+    useEffect(() => {
+        return () => {
+            user = {
+                address: {city: "", geo: {lat: "", lng: ""}, street: "", suite: "", zipcode: ""},
+                company: {bs: "", catchPhrase: "", name: ""},
+                email: "",
+                id: 0,
+                name: "",
+                phone: "",
+                username: "",
+                website: ""
+            }
+        }
+    })
 
     return (
         <Modal

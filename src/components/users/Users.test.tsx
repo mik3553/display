@@ -1,35 +1,25 @@
 import React from 'react';
 
 import Users from "./Users";
-import { render, cleanup} from '@testing-library/react';
+import {cleanup, render} from '@testing-library/react';
 import {UserProps} from "../../models/UserProps";
+
 const ReactTestRenderer = require('react-test-renderer');
 
-const showUserInfo = () => console.log('info');
+const showUserInfo = () => async (id:number) => {
+    return usersData.find((user: UserProps) => user.id === id);
+}
 const navigateWebSite = () => console.log('navigate');
 const handleClose = () => console.log('close');
 const user:UserProps = {
-    email: '',
+    address: {city: "", geo: {lat: "", lng: ""}, street: "", suite: "", zipcode: ""},
+    company: {bs: "", catchPhrase: "", name: ""},
+    email: "",
     id: 0,
-    name: '',
-    phone: '',
-    username: '',
-    website: '',
-    address : {
-        city: '',
-        geo: {
-            lat: '',
-            lng: '',
-        },
-        street: '',
-        suite: '',
-        zipcode: '',
-    },
-    company : {
-        bs: '',
-        catchPhrase: '',
-        name: '',
-    }
+    name: "",
+    phone: "",
+    username: "",
+    website: ""
 };
 const usersData:Array<UserProps> = [];
 

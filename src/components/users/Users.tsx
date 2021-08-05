@@ -25,14 +25,13 @@ const useStyles = makeStyles({
 
 interface Props {
     users: Array<UserProps>;
-    showUserInfo:any;
-    navigateWebSite:any;
-    user:any;
+    showUserInfo:(id:number) => Promise<void>;
+    user:UserProps | undefined;
     open: boolean;
     handleClose:() => void;
 }
 
-const Users:React.FC<Props> = ({users, showUserInfo, navigateWebSite, user, handleClose, open}) => {
+const Users:React.FC<Props> = ({users, showUserInfo, user, handleClose, open}) => {
 
     const classes = useStyles();
 

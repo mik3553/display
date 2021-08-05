@@ -42,13 +42,7 @@ const App = () => {
     const showUserInfo = async (id:number) => {
         let user = await usersData.find((user:UserProps) => user.id === id);
         await setUser(user);
-        console.log(user)
         await handleOpen();
-    }
-
-    const navigateWebSite = async (id:number) => {
-        let user = await usersData.find((user:UserProps) => user.id === id);
-        return user ? user.website : '';
     }
 
     useEffect(() => {
@@ -69,7 +63,6 @@ const App = () => {
                 <Users
                     users={usersData}
                     showUserInfo={showUserInfo}
-                    navigateWebSite={navigateWebSite}
                     user={user}
                     handleClose={handleClose}
                     open={open}
